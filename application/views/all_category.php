@@ -23,9 +23,9 @@
               </div>
               <!-- /.card-header -->
               <div class="card-body">
-                 <div class="site-table" style="overflow: auto; height: 250px ">
+                 <div class="site-table" style="overflow: auto; height: 400px ">
                 <table class="table table-bordered" style="overflow: auto; width: 100%; height: 250px; text-align: center;">
-                  <thead style="background-color: #fff; color:#b8860b">
+                  <thead style="background-color: #fff; color:#b8860b;position: sticky;top: 0;">
                   <tr>
                     <th>Category Name</th>
                     <th>category image</th>

@@ -24,7 +24,7 @@
               <!-- /.card-header -->
               <div class="card-body">
                 <table class="table table-bordered">
-                  <thead style="background-color: #fff; color:#b8860b">
+                  <thead style="background-color: #fff; color:#b8860b;position: sticky;top: 0;">
                   <tr>
                     <th>ID</th>
                     <th>Category Name</th>

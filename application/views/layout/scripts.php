@@ -1,13 +1,14 @@
+
 <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
 <script src="<?= base_url(); ?>/assets/js/core/popper.min.js"></script>
 <script src="<?= base_url(); ?>/assets/js/core/bootstrap.min.js"></script>
 
-<script src="<?= base_url(); ?>assets/bootstrap/js/jquery.min.js"></script>
+<!-- <script src="<?= base_url(); ?>assets/bootstrap/js/jquery.min.js"></script> -->
 <script src="<?= base_url(); ?>assets/bootstrap/js/bootstrap.min.js"></script>
 <script src="<?= base_url(); ?>assets/bootstrap/js/typehead.js"></script>
 
 <!-- jQuery -->
-<script src="<?= base_url(); ?>/assets/plugins/jquery/jquery.min.js"></script>
+<!-- <script src="<?= base_url(); ?>/assets/plugins/jquery/jquery.min.js"></script> -->
 <!-- jQuery UI 1.11.4 -->
 <script src="<?= base_url(); ?>/assets/plugins/jquery-ui/jquery-ui.min.js"></script>
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->

@@ -48,7 +48,7 @@
 						<div class="site-table" style = "overflow: auto;height: 400px;">
 						<h4>All Orders</h4>
 							<table class="table table-bordered" id = "order_table" style="overflow: auto; width: 100%; height: 250px; text-align: center;">
-								<thead style="background-color: #fff; color:#b8860b">
+								<thead style="background-color: #fff; color:#b8860b;position: sticky;top: 0;">
 								<tr>
 									<th>Order Number </th>
 									<th>Customer Name</th>
@@ -103,7 +103,7 @@
 							<div class="site-table" style="overflow: auto; height: 400px;">
 								<h4>Current Orders</h4>
 								<table class="table table-bordered" id = "order_table1" style="overflow: auto; width: 100%; height: 250px; text-align: center;">
-									<thead style="background-color: #fff; color:#b8860b">
+									<thead style="background-color: #fff; color:#b8860b;position: sticky;top: 0;">
 									<tr>
 										<th>Order Number </th>
 										<th>Customer Name</th>
@@ -152,7 +152,7 @@
 							<div class="site-table" style="overflow: auto; height: 400px;">
 								<h4>Complated Orders</h4>
 								<table class="table table-bordered" id = "order_table2" style="overflow: auto; width: 100%; height: 250px; text-align: center;">
-									<thead style="background-color: #fff; color:#b8860b">
+									<thead style="background-color: #fff; color:#b8860b;position: sticky;top: 0;">
 									<tr>
 										<th>Order Number </th>
 										<th>Customer Name</th>
@@ -202,7 +202,7 @@
 							<div class="site-table" style="overflow: auto; height: 400px;">
 							<h4>Canceled</h4>
 							<table class="table table-bordered" id = "order_table3" style="overflow: auto; width: 100%; height: 250px; text-align: center;">
-								<thead style="background-color: #fff; color:#b8860b">
+								<thead style="background-color: #fff; color:#b8860b;position: sticky;top: 0;">
 								<tr>
 									<th>Order Number </th>
 									<th>Customer Name</th>
@@ -270,7 +270,7 @@
 			</div>
 			<div class="modal-body">
 				<table class="table table-bordered" style="overflow: auto; width: 100%; height: 150px; text-align: center;">
-					<thead style="background-color: #fff; color:#b8860b">
+					<thead style="background-color: #fff; color:#b8860b;position: sticky;top: 0;">
 					<tr>
 						<th>Product Name</th>
 						<th>Quantity</th>

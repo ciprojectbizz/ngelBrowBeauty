@@ -35,3 +35,4 @@
   <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 	<!--toastr -->
 	<link rel="stylesheet" href="<?= base_url(); ?>/assets/plugins/toastr/toastr.min.css">
+  <script src='https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js'></script>

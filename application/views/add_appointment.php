@@ -112,7 +112,7 @@
                         <select class="form-control chosen chosen-select-deselect" name="therapist" id="therapist" data-placeholder="Select Add ons" required>
                           <option placeholder=""></option>
                           <?php foreach ($therapist as $therapists) : ?>
-                            <option value="<?= $therapists['id'] ?>"><?= $therapists['name'] ?></option>
+                            <option value="<?= $therapists['id'] ?>"><?= $therapists['first_name']." ". $therapists['last_name'] ?></option>
                           <?php endforeach; ?>
 
                         </select>

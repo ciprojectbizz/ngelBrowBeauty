@@ -21,15 +21,8 @@ class Auth_Model extends CI_Model
 			return false;
 		}	
 	}
-     
-     function therapistList()
-    {
-      $this->db->select('*');
-      $this->db->from('nbb_therapists');
-      return $this->db->get()->result_array();
-    }
 
-     function findList($id,$selectDate){
+    function findList($id,$selectDate){
          $this->db->select('*');
          $this->db->from('nbb_appointment');
          $this->db->where('appointment_date',$selectDate);
@@ -38,11 +31,10 @@ class Auth_Model extends CI_Model
          //$this->db->join('customer','customer.id=appointment.customer_id');
          return $this->db->get()->result_array();
         //  print_r($this->db->last_query()); 
-        //  die;
-         
-     }
+        //  die; 
+    }
 
-     function getAllUser()
+    function getAllUser()
     {
       $this->db->select('*');
       $this->db->from('nbb_users');
@@ -57,18 +49,12 @@ class Auth_Model extends CI_Model
       $this->db->where('therapists',$therapist);
       return $this->db->get()->result_array();
     } 
-
     
     function storeFeedback($data)
     {
         $insert = $this->db->insert('nbb_feedback',$data); 
         return true;
     }
-	/*function storeBranch($data)
-    {
-        $insert = $this->db->insert('branch',$data); 
-		return true;
-    }*/
     
     function storeAppointment($data)
     {
@@ -76,13 +62,6 @@ class Auth_Model extends CI_Model
         return true;
     }
 	
-	function getServiceByID($id){
-        $this->db->select('*');
-        $this->db->from('nbb_service');
-        $this->db->where('id',$id);
-        $result= $this->db->get()->row();
-        return $result;
-    }
 	function storeCustomer($data)
     {
         $insert = $this->db->insert('nbb_customer',$data); 
@@ -134,4 +113,67 @@ class Auth_Model extends CI_Model
 		return $time;
 	}
 
+
+    //start dashboard
+
+    function getAllDuration(){
+        $this->db->select('*');
+        $this->db->from('nbb_check_therapist');
+        return $this->db->get()->result_array();  
+      }
+       function checkOrderAsc($query){
+          $query = $this->db->query($query);
+          return $query->result_array();
+      }
+      function getAllTherapistH(){
+          $this->db->select('nbb_employees.*');
+          $this->db->from('nbb_employees');
+          $this->db->where('nbb_employees.designation','1');
+          $this->db->where('nbb_employees.status','1');
+          $this->db->order_by('nbb_employees.order_id','ASC');
+          //$this->db->join('xin_leave_applications','xin_leave_applications.employee_id = xin_employees.user_id','left');
+          return $this->db->get()->result_array();
+      }
+      function getAllEvent()
+      {
+          $this->db->select('nbb_dashboard.*');
+          $this->db->from('nbb_dashboard');
+          $this->db->join('nbb_employees','nbb_employees.id = nbb_dashboard.therapist_id');
+          return $this->db->get()->result_array();
+      } 
+      function getAllServices($id=null)
+      {
+          $this->db->select('nbb_service.*');
+          $this->db->from('nbb_service');
+       
+          return $this->db->get()->result_array();
+      }
+
+      function checkEvent($therapist_id,$date,$start_time,$end_time){
+          $this->db->select('id');
+          $this->db->from('nbb_dashboard');
+          $this->db->where('therapist_id',$therapist_id);
+          $this->db->where('start_date',$date);
+          $this->db->group_start();
+          $this->db->where('start_time <=',$start_time);
+          $this->db->where('end_time >=',$end_time);
+          $this->db->group_end();
+          return $this->db->get()->num_rows();
+      }
+       function dashboard($data)
+      {
+          $insert = $this->db->insert('nbb_dashboard',$data); 
+          return true;
+      }
+      function insertDur($data){
+          $insert = $this->db->insert('nbb_check_therapist',$data); 
+          return true;
+       }
+      function getServiceByID($id){
+          $this->db->select('*');
+          $this->db->from('nbb_service');
+          $this->db->where('id',$id);
+          $result= $this->db->get()->row();
+          return $result;
+      }
 }

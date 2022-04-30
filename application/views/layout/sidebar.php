@@ -290,10 +290,16 @@
 							<span class="sidenav-normal"> Archive Employee </span>
 						</a>
 					</li>
-				<li class="nav-item">
-					<a class="nav-link" href="<?= base_url(); ?>admin/employeeManagement/allEmployeeSalary">
+					<li class="nav-item">
+						<a class="nav-link" href="<?= base_url(); ?>admin/employeeManagement/allEmployeeSalary">
 							<span class="sidenav-mini-icon"> E </span>
 							<span class="sidenav-normal"> Employee Salary </span>
+						</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="<?= base_url(); ?>admin/Pay_Structure/allPay_Structure">
+							<span class="sidenav-mini-icon"> P </span>
+							<span class="sidenav-normal"> Pay Structure </span>
 						</a>
 					</li>
 				</ul>
@@ -329,7 +335,7 @@
   <!-- Github buttons -->
   <script async defer src="https://buttons.github.io/buttons.js"></script>
   <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
-  <script src="<?= base_url(); ?>/assets/js/soft-ui-dashboard.min.js?v=1.0.3"></script>
+  <script src="<?= base_url(); ?>assets/js/soft-ui-dashboard.min.js?v=1.0.3"></script>
 </body>
 
 </html>
