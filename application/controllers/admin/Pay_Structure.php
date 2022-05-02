@@ -33,6 +33,11 @@ class Pay_Structure extends CI_Controller {
 				redirect('admin/pay_Structure/allPay_Structure');
 			}
 	}
+	public function edit_empPay_Structure(){
+		$pay_structureId = $this->uri->segment(4);
+		$data['allpay_structure'] = $this->PayStructure->getEditpay_structure($pay_structureId);
+		$this->layout->view('edit_empPayStructure',$data); 
+	}
 	public function deleteEmpPay_Structurey()
 	{
 	   if($this->session->has_userdata('id')!=false)

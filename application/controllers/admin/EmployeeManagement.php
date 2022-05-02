@@ -228,7 +228,7 @@ class EmployeeManagement extends CI_Controller {
 				redirect('admin/employeeManagement/allEmployeeSalary');
 			}
 	}
-	public function edit_employeeSalary(){
+	/*public function edit_employeeSalary(){
 		$data['name'] = $this->session->userdata('name');
 		$data['lastpay_structure'] = $this->PayStructure->getLastpay_structure();
 		$data['allemployees'] = $this->EmployeeManagement->getAllemployees();
@@ -236,7 +236,7 @@ class EmployeeManagement extends CI_Controller {
 		$id = $this->uri->segment(4);	
 		$data['empSalary'] = $this->EmployeeManagement->geteditEmployeeSalary($id);
        	$this->layout->view('edit_EmpSalary',$data); 
-	}
+	}*/
 	public function post_edit_employeeSalary(){
 		
 		$empSalaryid = $this->input->post('empSalaryid');
