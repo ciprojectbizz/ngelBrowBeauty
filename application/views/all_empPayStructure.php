@@ -49,9 +49,8 @@
                         <?php /* <td><?= $allpay_structureRow['house_rent_allowance'] ?></td>*/ ?>
 												<td><?= $allpay_structureRow['medical_Allowance'] ?></td>
                         <td>
-												<a href="<?= base_url('admin/employeeManagement/edit_employeeSalary/'.$allpay_structureRow['id'])?>" class="btn btn-default" data-toggle="tooltip" title="Edit" style="color:#b8860b"><i class="fa fa-edit"></i></a>
-												<a href="<?= base_url('admin/employeeManagement/deleteEmployeeSalary/'. $allpay_structureRow['id'])?>" onclick="return confirm('Are you sure you want to delete this data?')" class="btn btn-default" data-toggle="tooltip" title="Delete" style="color:#b8860b"><i class="fa fa-trash"></i></a>
-												<!--<a href="<?= base_url('admin/EmployeeManagement/empArchive/'.$allpay_structureRow['id'])?>" onclick="return confirm('Are you sure you want to Archive this data?')" class="btn btn-default" data-oggle="tooltip" title="Delete" style="color:#b8860b"><i class="fa fa-user-times" aria-hidden="true"></i></a>-->
+												<!--<a href="<?= base_url('admin/employeeManagement/edit_employeeSalary/'.$allpay_structureRow['id'])?>" class="btn btn-default" data-toggle="tooltip" title="Edit" style="color:#b8860b"><i class="fa fa-edit"></i></a>-->
+												<a href="<?= base_url('admin/pay_Structure/deleteEmpPay_Structurey/'. $allpay_structureRow['id'])?>" onclick="return confirm('Are you sure you want to delete this data?')" class="btn btn-default" data-toggle="tooltip" title="Delete" style="color:#b8860b"><i class="fa fa-trash"></i></a>
 											</td>
                       </tr>
                     <?php endforeach; ?>

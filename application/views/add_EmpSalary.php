@@ -52,23 +52,27 @@
 								</td>
 								<td>Dearness Allowance</td>
 								<td>
+									<input type="hidden" name="da" value ="<?= $lastpay_structure['dearness_Allowance']?>" id = "da">
 									<input type="text" name="dearness_allowance" placeholder="Dearness Allowance" value ="" class="form-control" id = "dearness_allowance">
 								</td>
 							</tr>
 							<tr>
 								<td>Provident Fund</td>
 								<td>
+									<input type="hidden" name="pf" value ="<?= $lastpay_structure['provident_Fund']?>" id = "pf">
 									<input type="text" name="Provident_fund" value ="" placeholder="Provident Fund" class="form-control" id = "Provident_fund">
 								</td>
 								<td>Employees State Insurance</td>
 								<td>
-									<input type="text" name="employees_state_insurance" placeholder="Employees State Insurance" value ="" class="form-control" id="esi">
+									<input type="hidden" name="esi" value ="<?= $lastpay_structure['ESI']?>" id = "esi">
+									<input type="text" name="employees_state_insurance" placeholder="Employees State Insurance" value ="" class="form-control" id="EmployeesStateInsurance">
 								</td>
 							</tr>
 							
 							<tr>
 								<td>Medical Allowance</td>
 								<td>
+									<input type="hidden" name="ma" value ="<?= $lastpay_structure['medical_Allowance']?>" id = "ma">
 									<input type="text" name="medical_allowance" placeholder="Medical Allowance" value="" class="form-control" id = "medical_allowance">
 								</td>
 								<td>Total Earning</td>
@@ -141,23 +145,30 @@
     function calcSalary(){
 
 		const basic_pay = parseInt(document.getElementById('basic_pay').value);
+		const da = document.getElementById("da").value;//   parseInt(document.getElementById('da').value);
+		const pf = document.getElementById("pf").value;
+		const esi = document.getElementById("esi").value;
+		const ma = document.getElementById("ma").value;
+
+		//alert(da);
 		
-		const DA = basic_pay * 0.10;
-		const HRA = basic_pay * 0.5;
-		const MA = basic_pay * 0.02;
-		const GP = basic_pay + DA + HRA;
-        const PF = GP * 0.02;
-        const Tax = GP * 0.01;
-        const Deduction = Tax + PF;
-        const NetPay = GP - Deduction;
-		//alert(GP);
+		const DA = basic_pay * da;
+		//const HRA = basic_pay * 0.5;
+		const MA = basic_pay * ma;
+		const GrandPay = basic_pay + DA;
+        const PF = GrandPay * pf;
+        const EmployeesStateInsurance = GrandPay * esi;
+        const Deduction = EmployeesStateInsurance + PF;
+        const NetPay = GrandPay - Deduction;
+
+		//alert(NetPay);
 		
 		if(!isNaN(basic_pay)) {
 			document.getElementById('dearness_allowance').value = DA;
 			document.getElementById('Provident_fund').value = PF;
-			document.getElementById('esi').value = Tax;
+			document.getElementById('EmployeesStateInsurance').value = EmployeesStateInsurance;
 			document.getElementById('medical_allowance').value = MA;
-			document.getElementById('total_earning').value = GP;
+			document.getElementById('total_earning').value = GrandPay;
 			document.getElementById('net_pay').value = NetPay;
 			document.getElementById('total_deduction').value = Deduction;
 		}

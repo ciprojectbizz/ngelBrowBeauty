@@ -24,7 +24,7 @@ class Pay_Structure extends CI_Controller {
 			'year' => $this->input->post('getyear'),
 			'dearness_allowance' => $this->input->post('dearness_allowance'),
 			'Provident_fund' => $this->input->post('Provident_fund'),
-			'employees_state_insurance' => $this->input->post('employees_state_insurance'),
+			'ESI' => $this->input->post('employees_state_insurance'),
 			//'house_rent_allowance' => $this->input->post('gender'),
 			'medical_allowance' => $this->input->post('medical_allowance'));
 
@@ -32,6 +32,18 @@ class Pay_Structure extends CI_Controller {
 			if($insert){
 				redirect('admin/pay_Structure/allPay_Structure');
 			}
+	}
+	public function deleteEmpPay_Structurey()
+	{
+	   if($this->session->has_userdata('id')!=false)
+	   {
+		   $emppayId=$this->uri->segment(4);
+		   $result=$this->Main->delete('id',$emppayId,'nbb_pay_structure');
+		   if($result==true)
+		   {
+			   redirect('admin/pay_Structure/allPay_Structure');
+		   }
+	   }
 	}
 }
 ?>

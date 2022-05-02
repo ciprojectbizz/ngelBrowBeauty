@@ -51,35 +51,34 @@
 										<input type="checkbox" id="productID" name="productID[]" value="<?= $product_dataRow['id'] ?>">
 									</div>
 									<div class="col-md-3">   
-										<label for="product" class="col-sm-6 control-label"><h4><?= $product_dataRow['name'] ?></h4></label>
-										<label for="product" class="col-sm-6 control-label">Available stock : <?= $product_dataRow['available_stock'] ?></label>
-										<input type="hidden" class="form-control" name="available_stock[]" id="available_stock_<?= $product_dataRow['id'] ?>" value="<?= $product_dataRow['available_stock'] ?>">
+										<label for="product" class="col-md-6 control-label"><h5><?= $product_dataRow['name'] ?></h5></label>
+										<label for="product" class="col-md-6 control-label">Available stock : <?= $product_dataRow['available_stock'] ?></label>
 
+										<input type="hidden" class="form-control" name="available_stock[]" id="available_stock_<?= $product_dataRow['id'] ?>" value="<?= $product_dataRow['available_stock'] ?>">
 										<input type="hidden" class="form-control" name="stock_now[]" id="stock_now_<?= $product_dataRow['id'] ?>" value="">
 									</div>
 									<div class="col-md-3">   
-										<div class="form-group ">
-											<label for="Quantity" class="col-sm-6 control-label">Quantity 
-											</label>
-											<div class="col-sm-4">
-												<input type="number" class="form-control" name="quantity[]" id="quantity_<?= $product_dataRow['id'] ?>" placeholder="quantity" value="" onkeyup="calculate_total_quantity('<?= $product_dataRow['id'] ?>');">
-											</div>
-										</div>
-									</div>
-									<div class="col-md-2">
 										<div class="form-group">
-											<label for="age" class="col-sm-6 control-label">Product Price</label>
-											<div class="col-sm-12">
-												<input type="text" class="form-control" name="product_price[]" id="price_<?= $product_dataRow['id'] ?>" value="<?= $product_dataRow['price'] ?>">
+											<label for="Quantity" class="col-sm-6 control-label">Quantity </label>
+											<div class="col-md-4">
+												<input type="number" class="form-control" name="quantity[]" id="quantity_<?= $product_dataRow['id'] ?>" value="" onkeyup="calculate_total_quantity('<?= $product_dataRow['id'] ?>');">
 											</div>
 										</div>
 									</div>
+									<div class="col-md-3">
+										<div class="col-md-6">
+											<label for="age" class="control-label">Product Price</label>
+										</div>
+										<div class="col-md-6">
+											<input type="text" class="form-control" name="product_price[]" id="price_<?= $product_dataRow['id'] ?>" value="<?= $product_dataRow['price'] ?>">
+										</div>
+									</div>
 									<div class="col-md-2">
-										<div class="form-group ">
-											<label for="age" class="col-sm-6 control-label">Total Price</label>
-											<div class="col-sm-12">
-												<input type="text" class="form-control" name="totalPrice[]" id="totalPrice_<?= $product_dataRow['id'] ?>" value="" readonly>
-											</div>
+										<div class="col-md-6">
+											<label for="age" class="control-label">Total Price</label>
+										</div>
+										<div class="col-md-6">
+											<input type="text" class="form-control" name="totalPrice[]" id="totalPrice_<?= $product_dataRow['id'] ?>" value="" readonly>
 										</div>
 									</div>
 								</div>
