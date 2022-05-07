@@ -28,7 +28,7 @@
 							<label for="service_name" class="col-sm-6 control-label">Product Name <i class="required">*</i>
 							</label>
 							<div class="col-sm-12">
-								<input type="text" class="form-control" name="product_name" id="product_name" placeholder="Product Name Max Length : 150." value="">
+								<input type="text" class="form-control" name="product_name" placeholder="Product Name Max Length : 150." value="" required>
 							</div>
 						</div>
                 	</div>
@@ -38,7 +38,7 @@
 							<i class="required">*</i>
 							</label>
 							<div class="col-sm-12">
-								<select class="form-control chosen chosen-select-deselect" name="product_category" id="product_category" data-placeholder="Select Product Category" >
+								<select class="form-control chosen chosen-select-deselect" name="product_category" data-placeholder="Select Product Category" required>
 									<option>Select Product Category</option>
 									<?php foreach($category as $category_row): ?>
 									<option value="<?= $category_row['id']?>"><?= $category_row['name']?></option>
@@ -53,7 +53,7 @@
 						<div class="form-group ">
 							<label for="image" class="col-sm-6 control-label">Product SKU </label>
 							<div class="col-sm-12">
-							<input type="text" class="form-control" name="product_sku" id="product_sku" placeholder="Product SKU Max Length : 50." value="">
+							<input type="text" class="form-control" name="product_sku" placeholder="Product SKU Max Length : 50." required value="">
 							</div>
 						</div>
 					</div>
@@ -63,7 +63,7 @@
 							<i class="required">*</i>
 							</label>
 							<div class="col-sm-12">
-								<input type="text" class="form-control" name="product_code" id="product_code" placeholder="Product Code Max Length : 50." value="">
+								<input type="text" class="form-control" name="product_code" placeholder="Product Code Max Length : 50." value="">
 							</div>
 						</div> 
                  	</div>
@@ -88,7 +88,7 @@
 							<i class="required">*</i>
 							</label>
 							<div class="col-sm-12">
-								<input type="number" class="form-control" name="product_price" id="product_price" placeholder="Product Price Max Length : 50." value="">
+								<input type="number" class="form-control" name="product_price" placeholder="Product Price Max" value="" required>
 							</div>
 						</div>        
 					</div> 
@@ -98,15 +98,15 @@
 							<i class="required">*</i>
 							</label>
 							<div class="col-sm-12">
-								<input type="number" class="form-control" name="product_weight" id="product_weight" placeholder="Product Price Max Length : 50." value="">
+								<input type="number" class="form-control" name="product_weight" required placeholder="Product Price" value="">
 							</div>
 						</div>        
 					</div> 
 					<div class="col-md-4">                       
 						<div class="form-group ">
-							<label for="stock" class="col-sm-6 control-label">Stock </label>
+							<label for="stock" class="col-sm-6 control-label">Stock <i class="required">*</i></label>
 							<div class="col-sm-12">
-								<input type="number" class="form-control" name="stock" id="stock" placeholder="Numder Of Product Available In Store" value="">
+								<input type="number" class="form-control" name="stock" required placeholder="Numder Of Product Available In Store" value="">
 							</div>
 						</div>
 					</div>
@@ -136,7 +136,27 @@
 							</div>
 						</div>
                   	</div>  
-                </div> 
+                </div>
+				<div class="row">
+					<div class="col-md-6">
+						<div class="form-group ">
+							<label for="therapist_commission" class="col-sm-6 control-label">Manufacturing Date <i class="required">*</i></label>
+							<div class="col-sm-12">
+								<input type="date" class="form-control" name="mfg_date" required placeholder="Manufacturing Date" value="">
+							</div>
+						</div>                                
+					</div> 
+					<div class="col-md-6">                              
+						<div class="form-group ">
+							<label for="status" class="col-sm-6 control-label">Expiry Date <i class="required">*</i></label>
+							<div class="col-sm-12">
+								<input type="date" class="form-control" name="expiry_date" required placeholder="Expiry Date" value="">
+								<small class="info help-block">
+								</small>
+							</div>
+						</div>
+                  	</div>  
+                </div>
                 <div class="row">
 					<div class="col-md-4">
 						<div class="form-group ">

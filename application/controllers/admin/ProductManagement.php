@@ -6,7 +6,7 @@ class ProductManagement extends CI_Controller {
 	public function __construct() {
 
 		parent::__construct();
-
+		$this->load->library('Zend');
 		//$this->db2 = $this->load->database('database2', TRUE);
 
 	}
@@ -121,6 +121,9 @@ class ProductManagement extends CI_Controller {
 			'weight' => $this->input->post('product_weight'),
 			'price' => $this->input->post('product_price'),
 			'stock' => $this->input->post('stock'),
+			'available_stock' => $this->input->post('stock'),
+			'mfg_date' => $this->input->post('mfg_date'),
+			'expiry_date' => $this->input->post('expiry_date'),
 			'status' =>$this->input->post('status')
 			);
 			$this->db->insert('nbb_product',$product_data); 
@@ -189,6 +192,8 @@ class ProductManagement extends CI_Controller {
 			'weight' => $this->input->post('product_weight'),
 			'price' => $this->input->post('product_price'),
 			'stock' => $this->input->post('stock'),
+			'mfg_date' => $this->input->post('mfg_date'),
+			'expiry_date' => $this->input->post('expiry_date'),
 			'status' =>$this->input->post('status')
 			);
 			$result=$this->Main->update('id',$product_id, $product_data,'nbb_product');
@@ -232,9 +237,53 @@ class ProductManagement extends CI_Controller {
 			}  
 		
   	}
-	
-	public function deleteProduct()
+	  public function updateStack_status()
 	  {
+		  if(empty($this->session->has_userdata('id'))){
+			  redirect('admin');
+		  }
+	  
+		  $product_detailsId = $this->input->post('product_detailsId');
+		  $data = array(
+			  'available_stock' => $this->input->post('product_stock'),
+			  'stock' => $this->input->post('product_stock')
+		  );  
+		  
+		  $result=$this->Main->update('id',$product_detailsId, $data,'nbb_product');
+		  if($result == true)
+		  {
+			  return redirect('admin/productManagement/all_product');
+		  }
+		  else
+		  {
+			  $errorUploadType = 'Some problem occurred, please try again.';
+		  }      
+	  }
+	public function set_barcode()
+	{
+		$product_id = $_GET['product_id']; 
+		$sku_code = $_GET['sku_code']; 
+		$date_now = date("Y-m-d");
+		//load library
+		
+		//load in folder Zend
+		$this->zend->load('Zend/Barcode');
+		//generate barcode
+		
+		$file = Zend_Barcode::draw('code128', 'image', array('text' => $sku_code), array());
+  		$barcode_image = $sku_code.'_'.$date_now.'.png';
+		$store_image = imagepng($file,FCPATH."uploads/barcode/".$barcode_image);
+
+		$barcode_data = array('barcode' => $barcode_image);
+
+		$update = $this->Main->update('id',$product_id, $barcode_data,'nbb_product');    
+		if($update){
+		  redirect('product');
+		}
+	}
+
+	public function deleteProduct()
+	{
 		 if($this->session->has_userdata('id')!=false)
 		 {
 			 $productId=$this->uri->segment(4);
@@ -258,7 +307,7 @@ class ProductManagement extends CI_Controller {
 		 }
 	}
 	public function delete_productImage()
-	  {
+	{
 		if($this->session->has_userdata('id')!=false)
 		{
 			$imageId = $_POST['id'];

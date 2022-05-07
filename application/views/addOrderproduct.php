@@ -44,15 +44,13 @@
 					</div>
 					<div class = "row">
 						<div class="col-md-12">
-							<label for="product" class="col-sm-6 control-label"><h5>Product</h5></label>
+							<h4 class="col-md-12 control-label">Products</h4>
 							<?php foreach ($product_data as $product_dataRow) : ?>
 								<div class="row">
-									<div class="col-md-1"> 
-										<input type="checkbox" id="productID" name="productID[]" value="<?= $product_dataRow['id'] ?>">
-									</div>
-									<div class="col-md-3">   
-										<label for="product" class="col-md-6 control-label"><h5><?= $product_dataRow['name'] ?></h5></label>
-										<label for="product" class="col-md-6 control-label">Available stock : <?= $product_dataRow['available_stock'] ?></label>
+									<div class="col-md-3"> 
+										<input type="checkbox" id="productID" name="productID[]" value="<?= $product_dataRow['id'] ?>">  
+										<label for="product" class="col-md-6 control-label mt-0"><h5><?= $product_dataRow['name'] ?></h5></label>
+										<label for="product" class="col-md-6 control-label mt-0">Available stock : <?= $product_dataRow['available_stock'] ?></label>
 
 										<input type="hidden" class="form-control" name="available_stock[]" id="available_stock_<?= $product_dataRow['id'] ?>" value="<?= $product_dataRow['available_stock'] ?>">
 										<input type="hidden" class="form-control" name="stock_now[]" id="stock_now_<?= $product_dataRow['id'] ?>" value="">
@@ -104,6 +102,16 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script src="https://cdn.rawgit.com/harvesthq/chosen/gh-pages/chosen.jquery.min.js"></script>
 <link href="https://cdn.rawgit.com/harvesthq/chosen/gh-pages/chosen.min.css" rel="stylesheet"/>
+<style>
+	h4{
+			background-color: #b8860b;
+			color: white;
+			padding: 5px;
+			text-align: left;
+			border-radius: 5px;
+			padding-left: 5px;
+		}
+</style>
 <script>
 	$(".chosen-select").chosen({
 		no_results_text: "Oops, nothing found!"

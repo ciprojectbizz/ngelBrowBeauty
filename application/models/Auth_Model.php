@@ -79,6 +79,11 @@ class Auth_Model extends CI_Model
         $this->db->from('nbb_customer');
         return $this->db->get()->result_array();     
     }
+	function getAllAdminUser(){
+        $this->db->select('nbb_users.*');
+        $this->db->from('nbb_users');
+        return $this->db->get()->result_array();     
+    }
 
     function getCustomerByID($contact){
         $this->db->select('*');

@@ -329,7 +329,7 @@
 		h3{
 			background-color: #b8860b;
 			color: white;
-			padding: 8px;
+			padding: 5px;
 			text-align: left;
 			border-radius: 10px;
 			padding-left: 10px;

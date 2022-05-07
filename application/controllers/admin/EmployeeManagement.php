@@ -258,6 +258,7 @@ class EmployeeManagement extends CI_Controller {
 				redirect('admin/employeeManagement/edit_employeeSalary'.$empSalaryid);
 			}
 	}
+
 	public function deleteEmployeeSalary()
 	{
 	   if($this->session->has_userdata('id')!=false)
@@ -301,7 +302,6 @@ class EmployeeManagement extends CI_Controller {
 				redirect('admin/employeeManagement/allLeaveList');
 			}
 	}
-	
 	public function edit_employeeLeave(){
 		$data['name'] = $this->session->userdata('name');
 		$data['allemployees'] = $this->EmployeeManagement->getAllemployees();
@@ -328,6 +328,16 @@ class EmployeeManagement extends CI_Controller {
 			if($update){
 				redirect('admin/employeeManagement/edit_employeeLeave/'.$leaveID);
 			}
+	}
+	public function all_holidaysList()
+    {
+		$data['name'] = $this->session->userdata('name');
+		$data['emp_holidays'] = $this->EmployeeManagement->getAllholidaysList();
+		$this->layout->view('all_holidaysList',$data); 
+	}
+	public function add_holidays(){
+		$data['name'] = $this->session->userdata('name');
+       	$this->layout->view('add_holidaysList',$data); 
 	}
 	public function deleteEmployeeLeave()
 	{

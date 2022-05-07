@@ -273,4 +273,64 @@ class OrderManagement_Model extends CI_Model
 		$this->db->where('nbb_order_product.order_id',$id);
 		return $this->db->get()->result_array();
 	}
+	function getEveryCustomerOrderProduct($id)
+	{
+		$this->db->select('nbb_order_main.*,
+		nbb_customer.first_name,
+		nbb_customer.last_name');
+		$this->db->from('nbb_order_main');
+		$this->db->join('nbb_customer', 'nbb_customer.id = nbb_order_main.user_id', 'LEFT');
+		$where = array(
+			'nbb_order_main.type_flag' => 'O',
+			'nbb_order_main.user_id'   => $id
+		  );
+		$this->db->where($where);
+		return $this->db->get()->result_array();
+	}
+	function getEveryCustomerCurrentOrder($id)
+	{
+		$this->db->select('nbb_order_main.*,
+		nbb_customer.first_name,
+		nbb_customer.last_name');
+		$this->db->from('nbb_order_main');
+		$this->db->join('nbb_customer', 'nbb_customer.id = nbb_order_main.user_id', 'LEFT');
+		$where = array(
+			'type_flag' => 'O',
+			'order_status'   => 1,
+			'nbb_order_main.user_id'   => $id
+		  );
+		$this->db->where($where);
+		return $this->db->get()->result_array();
+	}
+	function getEveryCustomerComplatedOrder($id)
+	{
+		$this->db->select('nbb_order_main.*,
+		nbb_customer.first_name,
+		nbb_customer.last_name');
+		$this->db->from('nbb_order_main');
+		$this->db->join('nbb_customer', 'nbb_customer.id = nbb_order_main.user_id', 'LEFT');
+		$where = array(
+			'type_flag' => 'O',
+			'order_status'   => 2,
+			'nbb_order_main.user_id'   => $id
+		  );
+		$this->db->where($where);
+		return $this->db->get()->result_array();
+	}
+	function getEveryCustomerCanceledOrder($id)
+	{
+		$this->db->select('nbb_order_main.*,
+		nbb_customer.first_name,
+		nbb_customer.last_name');
+		$this->db->from('nbb_order_main');
+		$this->db->join('nbb_customer', 'nbb_customer.id = nbb_order_main.user_id', 'LEFT');
+		$where = array(
+			'type_flag' => 'O',
+			'order_status'   => 3,
+			'nbb_order_main.user_id'   => $id
+		);
+		$this->db->where($where);
+		return $this->db->get()->result_array();
+	}
+
 }

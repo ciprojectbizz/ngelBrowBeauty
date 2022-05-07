@@ -219,13 +219,18 @@ class EmployeeManagement_model extends CI_Model
 		$empname = '';			
 
 		foreach($employees_query as $row){	
-
-				
-			$empname = $row['first_name'].'_'.$row['last_name'];
-				
+		
+			$empname = $row['first_name'].'_'.$row['last_name'];		
 
 		}
 		return $empname;
+	}
+	function getAllholidaysList(){
+		
+		$this->db->select('nbb_emp_holidays.*');
+		$this->db->from('nbb_emp_holidays');
+		return $this->db->get()->result_array();
+		
 	}
 }
 ?>

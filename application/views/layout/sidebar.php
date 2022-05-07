@@ -305,14 +305,32 @@
 				</ul>
 			</div>
 		</li>
+
 		<li class="nav-item">
-          <a class="nav-link  " href="<?= base_url(); ?>admin/employeeManagement/allLeaveList">
-            <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center" style="background-color:#b8860b !important;">
-            <i class="fa fa-user"></i>
-            </div>
-            <span class="nav-link-text ms-1" style="color:#b8860b; font-weight:bold; font-zise:14px !important;">Leave Management</span>
-          </a>
-        </li> 
+			<a data-bs-toggle="collapse" href="#pagesExamples6" class="nav-link collapsed" aria-controls="pagesExamples6" role="button" aria-expanded="false">
+			<div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center" style="background-color:#b8860b !important;">
+			<i class="fas fa-users"></i>
+			</div>
+				<span class="nav-link-text ms-1" style="color:#b8860b; font-weight:bold; font-zise:14px !important;">Leave Management</span>
+			</a>
+			<div class="collapse" id="pagesExamples6" style="">
+				<ul class="nav ms-4 ps-3">
+					<li class="nav-item">
+					<a class="nav-link" href="<?= base_url(); ?>admin/employeeManagement/allLeaveList">
+							<span class="sidenav-mini-icon"> E </span>
+							<span class="sidenav-normal"> Employee's Leave </span>
+						</a>
+					</li>
+					<li class="nav-item">
+					<a class="nav-link" href="<?= base_url(); ?>admin/employeeManagement/all_holidaysList">
+							<span class="sidenav-mini-icon"> H </span>
+							<span class="sidenav-normal"> Holidays </span>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</li>
+
         <li class="nav-item">
           <a class="nav-link  " href="<?= base_url(); ?>admin/employeeManagement/allAttendance">
             <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center" style="background-color:#b8860b !important;">

@@ -277,10 +277,6 @@ class Welcome extends CI_Controller {
             
         }
         
-        
-
-
-
 
     public function find(){
         $selectDate = $_GET['findDate'];
@@ -440,7 +436,9 @@ class Welcome extends CI_Controller {
        if(empty($this->session->has_userdata('id'))){
         redirect('admin');
       	}
+		$data['AdminUser'] = $this->Auth->getAllAdminUser();
        	$data['name'] = $this->session->userdata('name');
+
        	$this->layout->view('add_customer',$data);
     
     }
@@ -458,6 +456,8 @@ class Welcome extends CI_Controller {
 			'medical_information' => $this->input->post('medical_information'),
 			'transactional_records' => $this->input->post('transactional_records'),
 			'skin_conditions' => $this->input->post('skin_conditions'),
+			'reference_name' => $this->input->post('reference_name'),
+			'membership' => $this->input->post('membership'),
 			'status' => $this->input->post('status'),
 			'created_by' => $this->session->userdata('id'),
 			'created_at' => date("Y-m-d H:i:s"));
@@ -510,14 +510,14 @@ class Welcome extends CI_Controller {
 		  redirect('admin');
 		}
 		$customerId = $this->uri->segment(4);
+		$data['AdminUser'] = $this->Auth->getAllAdminUser();
 		$data['customerDataForEdit'] = $this->Auth->getCustomerData($customerId);
 		$this->layout->view('edit_Customer',$data);
-   }
+   	}
    public function post_edit_customer(){
 	if(empty($this->session->has_userdata('id'))){
 	  redirect('admin');
 	}
-		
 		$customerid = $this->input->post('customerid');
 		$data = array(
 			'first_name' => $this->input->post('first_name'),
@@ -530,6 +530,8 @@ class Welcome extends CI_Controller {
 			'medical_information' => $this->input->post('medical_information'),
 			'transactional_records' => $this->input->post('transactional_records'),
 			'skin_conditions' => $this->input->post('skin_conditions'),
+			'reference_name' => $this->input->post('reference_name'),
+			'membership' => $this->input->post('membership'),
 			'status' => $this->input->post('status')
 
 		);
@@ -570,6 +572,17 @@ class Welcome extends CI_Controller {
 		 
 			redirect('admin/welcome/editCustomer/'. $customerid);
 	} 
+
+	public function viewPastTransaction()
+    {
+       $customerId = $this->uri->segment(4);
+       $data['orderProduct'] = $this->OrderManagement->getEveryCustomerOrderProduct($customerId);
+	   $data['AllCurrentOrder'] = $this->OrderManagement->getEveryCustomerCurrentOrder($customerId);
+	   $data['AllComplatedOrder'] = $this->OrderManagement->getEveryCustomerComplatedOrder($customerId);
+	   $data['AllCanceledOrder'] = $this->OrderManagement->getEveryCustomerCanceledOrder($customerId);
+       $this->layout->view('all_orderProduct',$data); 
+    }
+
 	public function deleteCustomer()
     {
         if($this->session->has_userdata('id')!=false)

@@ -49,8 +49,11 @@
                         <td><?= $customers['contact']?></td>
                         <td><?= $customers['address']?></td>
                         <td><?= $customers['created_at']?></td>
-                        <td> <a href="<?= base_url('admin/welcome/editCustomer/'. $customers['id'])?>" class="btn btn-default" data-toggle="tooltip" title="Edit" style="color:#b8860b"><i class="fa fa-edit"></i></a>
-                         <a href="<?= base_url('admin/welcome/deleteCustomer/'. $customers['id'])?>" onclick="return confirm('Are you sure you want to delete this data?')" class="btn btn-default" data-toggle="tooltip" title="Delete" style="color:#b8860b"><i class="fa fa-trash"></i></a></td>
+                        <td> 
+													<a href="<?= base_url('admin/welcome/viewPastTransaction/'.$customers['id'])?>" target="_blank" class="btn btn-default" data-toggle="tooltip" title="past transaction history" style="color:#b8860b"><i class="fa fa-eye"></i></a>
+													<a href="<?= base_url('admin/welcome/editCustomer/'. $customers['id'])?>" class="btn btn-default" data-toggle="tooltip" title="Edit" style="color:#b8860b"><i class="fa fa-edit"></i></a>
+                         	<a href="<?= base_url('admin/welcome/deleteCustomer/'. $customers['id'])?>" onclick="return confirm('Are you sure you want to delete this data?')" class="btn btn-default" data-toggle="tooltip" title="Delete" style="color:#b8860b"><i class="fa fa-trash"></i></a>
+												</td>
                       </tr>
                     <?php endforeach; ?>
                   </tbody>

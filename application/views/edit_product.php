@@ -115,12 +115,36 @@
 						</div>                                
 					</div>  
                 </div> 
-                <div class="row">
-					<div class="col-md-6">                       
+               
+				<div class="row">
+					<div class="col-md-6">
 						<div class="form-group ">
-							<label for="stock" class="col-sm-6 control-label">Stock </label>
+							<label for="therapist_commission" class="col-sm-6 control-label">Manufacturing Date <i class="required">*</i></label>
 							<div class="col-sm-12">
-								<input type="number" class="form-control" name="stock" id="stock" placeholder="Numder Of Product Available In Store" value="<?= $productData['stock'] ?>">
+								<input type="date" class="form-control" name="mfg_date" id="mfg_date" placeholder="Manufacturing Date" value="">
+							</div>
+						</div>                                
+					</div> 
+					<div class="col-md-6">                              
+						<div class="form-group ">
+							<label for="status" class="col-sm-6 control-label">Expiry Date <i class="required">*</i></label>
+							<div class="col-sm-12">
+								<input type="date" class="form-control" name="expiry_date" id="expiry_date" placeholder="Expiry Date" value="">
+								<small class="info help-block">
+								</small>
+							</div>
+						</div>
+                  	</div>  
+                </div>
+				<div class="row">
+					<div class="col-md-6">
+						<div class="form-group ">
+							<label for="image" class="col-sm-6 control-label">Product Image </label>
+							<div class="col-sm-12">
+								<div id="image"></div>
+								<input type="file" name="productfiles[]" multiple>
+								<small class="info help-block">
+								</small>
 							</div>
 						</div>
 					</div>
@@ -140,20 +164,7 @@
 							</div>
 						</div>
                   	</div> 
-                </div> 
-				<div class="row">
-					<div class="col-md-4">
-						<div class="form-group ">
-							<label for="image" class="col-sm-6 control-label">Product Image </label>
-							<div class="col-sm-12">
-								<div id="image"></div>
-								<input type="file" name="productfiles[]" multiple>
-								<small class="info help-block">
-								</small>
-							</div>
-						</div>
-					</div>
-                </div>                               
+                </div>                              
                     <input type="submit" class="btn btn-primary btn-custom" value="submit" style="width: 150px;">
               </form>
               </div>

@@ -120,6 +120,33 @@
 							</div>
 						</div>
 					</div>     
+
+					<div class="row">
+						<div class="col-md-6">   
+							<div class="form-group ">
+								<label for="email" class="col-sm-6 control-label">Reference Name</label>
+								<div class="col-sm-12">
+									<select  class="form-control chosen chosen-select" name="reference_name" data-placeholder="Select Reference Name" >
+										<option value="">Select Reference Name</option>
+										<?php foreach($AdminUser as $AdminUser_row): ?>
+									<option value="<?= $AdminUser_row['id']?>"><?= $AdminUser_row['first_name']?></option>
+									<?php endforeach; ?> 
+									</select>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="form-group ">
+								<label for="contact" class="col-sm-6 control-label">Membership</label>
+								<div class="col-sm-12">
+									<select  class="form-control chosen chosen-select" name="membership" data-placeholder="Select Membership" >
+										<option value="">Select Membership</option>
+									</select>
+								</div>
+							</div>
+						</div>
+					</div>     
+
 					<div class="form-group">
 						<label for="address" class="col-md-12 control-label">Address
 						</label>
