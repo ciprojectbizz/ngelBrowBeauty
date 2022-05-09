@@ -21,10 +21,10 @@
               
               <!-- /.card-header -->
               <div class="card-body">
-                <form id="add_promotion" action="<?= base_url('admin/employeeManagement/post_add_emp_details')?>" method="post" enctype="multipart/form-data">
+                <form id="add_promotion" action="<?= base_url('admin/employeeManagement/post_add_empHoliday')?>" method="post" enctype="multipart/form-data">
 				<h3> Employee Holidays List</h3>
 					<div id="personal-details">
-						<div class="row mt-2 " >
+						<div class="row p-3" >
 							<div class="col-md-4">   
 								<h6 class="col-sm-12">Holiday Year</h6>
 							</div>
@@ -45,7 +45,7 @@
 					<!-- Educational Qualification -->
 					<div id="educational-qualification">
 						
-						<div class="row" >
+						<div class="row p-2" >
 							<div class="col-md-4">   
 								<h6 class="col-sm-12">Date</h6>
 							</div>
@@ -57,15 +57,24 @@
 							</div>
 						</div>
 						<div class="showAddMoreQualification">
-							<div class="row">
+							<div class="row  p-2">
 								<div class="col-md-4">   	
-									<input type="text" name="qualification[]"  value="" class="form-control" >	
+									<input type="text" name="holidayDate[]"  value="" class="form-control" >	
 								</div>
 								<div class="col-md-4">
-									<input type="text" name="institute_university[]" value="" class="form-control" >
+									<select class="form-control" name="holidayDay[]">
+										<option>Select Day<option>
+										<option value="Sunday">Sunday<option>
+										<option value="Monday">Monday<option>
+										<option value="Tuesday">Tuesday<option>
+										<option value="Wednesday">Wednesday<option>
+										<option value="Thursday">Thursday<option>
+										<option value="Friday">Friday<option>
+										<option value="Saturday">Saturday<option>
+									<select>
 								</div>
 								<div class="col-md-4">   	
-									<input type="text" name="year_of_passing[]" value="" class="form-control" >	
+									<input type="text" name="holidays[]" value="" class="form-control" >	
 								</div>
 							</div>
 						</div>
@@ -93,7 +102,7 @@
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<script>
 		$('.AddMoreQualification').click(function() {
-		  var qualification_text =' <br><div class="row"><div class="col-md-4"><input type="text" name="qualification[]" class="form-control" value=""></div><div class="col-md-4"><input type="text" class="form-control" name="institute_university[]" value=""></div><div class="col-md-4"><input type="text" class="form-control" name="year_of_passing[]" value=""></div></div>';
+		  var qualification_text =' <br><div class="row p-2"><div class="col-md-4"><input type="text" name="holidayDate[]" class="form-control" value=""></div><div class="col-md-4"><select class="form-control" name="holidayDay[]"><option>Select Day<option><option value="Sunday">Sunday<option><option value="Monday">Monday<option><option value="Tuesday">Tuesday<option><option value="Wednesday">Wednesday<option><option value="Thursday">Thursday<option><option value="Friday">Friday<option><option value="Saturday">Saturday<option><select></div><div class="col-md-4"><input type="text" class="form-control" name="holidays[]" value=""></div></div>';
 		  $('.showAddMoreQualification').append(qualification_text);
 		});
 		

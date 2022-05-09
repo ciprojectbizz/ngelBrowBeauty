@@ -126,7 +126,7 @@
 							<div class="form-group ">
 								<label for="email" class="col-sm-6 control-label">Reference Name</label>
 								<div class="col-sm-12">
-									<select  class="form-control chosen chosen-select" name="reference_name" data-placeholder="Select Reference Name" >
+									<select class="form-control chosen chosen-select" name="reference_name" data-placeholder="Select Reference Name" >
 										<option value="">Select Reference Name</option>
 										<?php foreach($AdminUser as $AdminUser_row): ?>
 									<option value="<?= $AdminUser_row['id']?>"><?= $AdminUser_row['first_name']?></option>

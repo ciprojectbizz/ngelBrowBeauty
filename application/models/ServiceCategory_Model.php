@@ -98,8 +98,9 @@ class ServiceCategory_Model extends CI_Model
     }
    	function getAllTherapist()
     {
-		$this->db->select('nbb_employees.*');
+		$this->db->select('nbb_employees.*,nbb_emp_designation.designation_name');
 		$this->db->from('nbb_employees');
+		$this->db->join('nbb_emp_designation','nbb_emp_designation.id = nbb_employees.designation');
 		$this->db->where('nbb_employees.status', '1');
 		$this->db->where('nbb_employees.designation', '1');
 		return $this->db->get()->result_array();

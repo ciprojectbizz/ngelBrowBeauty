@@ -414,7 +414,29 @@ class EmployeeManagement extends CI_Controller {
 			header('Content-Disposition: attachment; filename="' . $filename . '";');
 			fpassthru($f);
 
-
+	}
+	public function post_add_empHoliday(){
+		// Use for qualification
+		$getyear = $this->input->post('getyear');
+		$holidayDate = $this->input->post('holidayDate');
+		$holidayDay = $this->input->post('holidayDay');
+		$holidays = $this->input->post('holidays');
+		
+		$total = count($holidayDate);
+		if($holidayDate){
+			for($i=0; $i<$total; $i++ ){
+				$holidays_data = array( 
+					'emp_id'    =>  $getyear, 
+					'qualification'=>  $holidayDate[$i],
+					'institute_university'=>  $holidayDay[$i],
+					'year_of_passing'=> $holidays[$i]
+				);
+				$insert3 = $this->EmployeeManagement->insert('nbb_emp_holidays',$holidays_data);
+			}
+		}
+		if($insert3){
+			redirect('admin/employeeManagement/all_holidaysList');
+		}
 	}
 }
 ?>

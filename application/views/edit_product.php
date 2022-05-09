@@ -121,7 +121,7 @@
 						<div class="form-group ">
 							<label for="therapist_commission" class="col-sm-6 control-label">Manufacturing Date <i class="required">*</i></label>
 							<div class="col-sm-12">
-								<input type="date" class="form-control" name="mfg_date" id="mfg_date" placeholder="Manufacturing Date" value="">
+								<input type="date" class="form-control" name="mfg_date" id="mfg_date" placeholder="Manufacturing Date" value="<?= $productData['mfg_date'] ?>">
 							</div>
 						</div>                                
 					</div> 
@@ -129,7 +129,7 @@
 						<div class="form-group ">
 							<label for="status" class="col-sm-6 control-label">Expiry Date <i class="required">*</i></label>
 							<div class="col-sm-12">
-								<input type="date" class="form-control" name="expiry_date" id="expiry_date" placeholder="Expiry Date" value="">
+								<input type="date" class="form-control" name="expiry_date" id="expiry_date" placeholder="Expiry Date" value="<?= $productData['expiry_date'] ?>">
 								<small class="info help-block">
 								</small>
 							</div>
